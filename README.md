@@ -19,12 +19,6 @@ A simple, stylish web-based tool to help you manage your monthly income, expense
 
 ---
 
-## 📸 Screenshots
-
-*(Add screenshots here if you like — press `PrtSc` or use Snipping Tool, then upload to GitHub or paste in issues)*
-
----
-
 ## 🛠 Tech Stack
 
 - **HTML5** – Semantic layout
