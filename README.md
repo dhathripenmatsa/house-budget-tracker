@@ -32,6 +32,6 @@ A simple, stylish web-based tool to help you manage your monthly income, expense
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/house-budget-tracker
+git clone https://github.com/dhathripenmatsa/house-budget-trackerr
 
 # Open index.html in your browser
