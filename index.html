@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>House Budget & Savings Planner</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+
+    <!-- ─── Month Selector ─── -->
+    <div class="section">
+      <label for="monthSelect"><strong>📅 Select Month:</strong></label>
+      <select id="monthSelect" onchange="loadMonthData()">
+        <!-- Add / remove options as you wish -->
+        <option value="2025-06">June 2025</option>
+        <option value="2025-07">July 2025</option>
+        <option value="2025-08">August 2025</option>
+      </select>
+    </div>
+
+    <h1>🏠 Monthly House Budget Planner</h1>
+    <!-- 🌙 Dark Mode Toggle -->
+    <div style="text-align: center; margin-bottom: 1rem;">
+    <label>
+      <input type="checkbox" id="darkModeToggle" onchange="toggleDarkMode()" />
+    🌙 Dark Mode
+    </label>
+    </div>
+
+
+    <!-- ─── Income ─── -->
+    <section class="section">
+      <h2>💰 Income</h2>
+      <div class="grid">
+
+        <div class="input-row income">
+          <span>💼</span>
+          <input type="number" id="income1" placeholder="Primary Income (e.g. Salary)" />
+        </div>
+
+        <div class="input-row income">
+          <span>💻</span>
+          <input type="number" id="income2" placeholder="Secondary Income (e.g. Freelance)" />
+        </div>
+
+        <div class="input-row income">
+          <span>🎁</span>
+          <input type="number" id="income3" placeholder="Other Income" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Expenses ─── -->
+    <section class="section">
+      <h2>💸 Expenses</h2>
+      <div class="grid">
+
+        <div class="input-row expense">
+          <span>🏠</span><input type="number" id="expense1" placeholder="Rent / Mortgage" />
+        </div>
+
+        <div class="input-row expense">
+          <span>🛒</span><input type="number" id="expense2" placeholder="Groceries" />
+        </div>
+
+        <div class="input-row expense">
+          <span>💡</span><input type="number" id="expense3" placeholder="Utilities" />
+        </div>
+
+        <div class="input-row expense">
+          <span>📶</span><input type="number" id="expense4" placeholder="Internet / Mobile" />
+        </div>
+
+        <div class="input-row expense">
+          <span>🎓</span><input type="number" id="expense5" placeholder="Education" />
+        </div>
+
+        <div class="input-row expense">
+          <span>🏥</span><input type="number" id="expense6" placeholder="Health" />
+        </div>
+
+        <div class="input-row expense">
+          <span>🎮</span><input type="number" id="expense7" placeholder="Entertainment" />
+        </div>
+
+        <div class="input-row expense">
+          <span>🧾</span><input type="number" id="expense8" placeholder="Others" />
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ─── Savings Goal ─── -->
+    <section class="section">
+      <h2>🎯 Savings Goal</h2>
+
+      <!-- user-editable goal -->
+      <input
+        type="number"
+        id="goalInput"
+        placeholder="Enter your goal (e.g. 5000)"
+        oninput="updateGoal()" />
+
+      <p>Goal: ₹<span id="goal">5000</span></p>
+
+      <div class="progress-bar">
+        <div class="progress" id="progressBar"></div>
+      </div>
+    </section>
+
+    <!-- ─── Summary ─── -->
+    <section class="section summary">
+      <h2>📊 Summary</h2>
+      <p>Total Income: ₹<span id="totalIncome">0</span></p>
+      <p>Total Expenses: ₹<span id="totalExpenses">0</span></p>
+      <p><strong>Remaining Balance: ₹<span id="balance">0</span></strong></p>
+    </section>
+
+    <!-- ─── Expense Breakdown Chart ─── -->
+    <section class="section">
+      <h2>📉 Expense Breakdown</h2>
+      <canvas id="expenseChart" width="400" height="400"></canvas>
+    </section>
+
+    <!-- ─── Action Buttons ─── -->
+    <section class="section buttons">
+      <button onclick="calculate()">Calculate</button>
+      <button onclick="resetForm()">Reset</button>
+      <button onclick="window.print()">Print</button>
+      <button onclick="exportToCSV()">📥 Export CSV</button>
+    </section>
+      
+
+
+    <footer>
+      <p>“Save money and money will save you.”</p>
+    </footer>
+  </div>
+
+  <!-- Libraries + Logic -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
